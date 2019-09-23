@@ -1,0 +1,136 @@
+@import "./mixins/config.scss";
+@import "./common/var.scss";
+@import "mixins/mixins";
+@import "mixins/utils";
+//后台布局
+//通用
+body{
+    margin: 0;
+    padding: 0;
+}
+@include b(layout){
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+@include b(header){
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: $--admin-aside-width;
+    z-index: 1030;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+    height:$--admin-header-height;
+    & .#{$namespace}-header-left{
+        left: 0;
+        top: 0;
+        padding-left:10px; 
+        position: absolute!important;
+        margin-right: auto!important;
+        border: none !important;
+    }
+    & .#{$namespace}-header-right{
+        right: 0;
+        top: 0;
+        position: absolute!important;
+        border: none !important;
+        & .#{$namespace}-icon-dropdown-arrow{
+            position: absolute;
+            top: 20px;
+            margin-left: 5px;
+            margin-right: 0px;
+        }
+    }
+    & .#{$namespace}-menu-item{
+        height: 50px;
+        line-height: 50px;
+        border-bottom:none;
+        padding: 0  15px;
+        & [class^="dui-icon-"], [class*=" dui-icon-"]{
+            vertical-align: initial;
+            width: auto;
+            font-size: 12px;
+        }
+        & *{
+            vertical-align: initial;
+        }
+    }
+}
+@include b(aside){
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 1020;
+    width:$--admin-aside-width;
+    background-color: $--color-white;
+    overflow: hidden;
+    &-inner{
+        position: relative;
+        width: ($--admin-aside-width)+20;
+        height: 100%;
+        overflow-x: hidden;
+        background-color: #344058;
+        >.#{$namespace}-menu{
+            border-right: none;
+            width: $--admin-aside-width;
+            margin-top: $--admin-header-height;
+            &.#{$namespace}-menu--collapse{
+                width: 64px;
+            }
+        }
+        & .#{$namespace}-submenu__title{
+            height: 50px;
+            line-height: 50px;
+        }
+    }
+}
+
+@include b(container){
+    position: fixed;
+    top: $--admin-header-height;
+    left: $--admin-aside-width;
+    bottom: 0;
+    right: 0;
+    z-index: 998;
+    width: auto;
+    overflow: hidden;
+    overflow-y: auto;
+    box-sizing: border-box;
+    background-color: #f1f4f5;
+    & .#{$namespace}-breadcrumb{
+        height: 50px;
+        line-height:50px;
+        background:#fff;
+        padding:0 15px;
+        background-color: #fff;
+        box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+        .#{$namespace}-breadcrumb__item:last-child .#{$namespace}-breadcrumb__separator {
+            display: none;
+        }
+    }
+}
+
+@include b(body){
+    padding: 15px;
+}
+
+@include b(logo){
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1002;
+    width: $--admin-aside-width;
+    height: $--admin-header-height;
+    padding: 0 15px;
+    box-sizing: border-box;
+    overflow: hidden;
+    font-weight: 400;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background: $--color-primary;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,.15);
+    line-height: 50px;
+    text-align: center;
+    color: #ffffff;
+}

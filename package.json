@@ -1,0 +1,55 @@
+{
+  "name": "dui-mdeditor",
+  "version": "1.0.0",
+  "description": "编辑器 富文本编辑器  markdown编辑器",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp dev",
+    "build": "gulp build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/a876771120/dui-mdeditor.git"
+  },
+  "keywords": [
+    "编辑器",
+    "富文本编辑器",
+    "markdown编辑器"
+  ],
+  "author": "a876771120",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/a876771120/dui-mdeditor/issues"
+  },
+  "homepage": "https://github.com/a876771120/dui-mdeditor#readme",
+  "devDependencies": {
+    "@babel/core": "^7.5.5",
+    "@babel/plugin-transform-runtime": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "@babel/runtime-corejs2": "^7.5.5",
+    "browser-sync": "^2.26.7",
+    "core-js": "^2.6.9",
+    "del": "^5.0.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.0",
+    "gulp-better-rollup": "^4.0.1",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-file-include": "^2.1.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-uglify": "^3.0.2",
+    "rollup": "^1.20.1",
+    "rollup-plugin-babel": "^4.3.3",
+    "rollup-plugin-commonjs": "^10.0.2",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-typescript2": "^0.24.2",
+    "typescript": "^3.6.3"
+  },
+  "dependencies": {
+    "@types/jquery": "^3.3.31",
+    "codemirror": "^5.49.0",
+    "crel": "^4.0.1"
+  }
+}

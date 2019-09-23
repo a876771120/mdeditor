@@ -1,0 +1,19 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets":{
+          "browsers": "last 2 versions, > 1%, ie >= 9",
+        },
+        "modules": false,
+        "exclude": ["transform-typeof-symbol"]
+      }
+    ]
+  ],
+  "plugins": [
+    // [
+    //   // "@babel/plugin-transform-runtime"
+    // ]
+  ]
+}

@@ -1,0 +1,331 @@
+@import "mixins/mixins";
+@import "progress";
+@import "common/var";
+@import "./mixins/config.scss";
+@include b(upload) {
+  display: inline-block;
+  text-align: center;
+  cursor: pointer;
+  outline: none;
+  @include e(input) {
+    display: none;
+  }
+
+  @include e(pick){
+    display: inline-block;
+  }
+
+  @include e(tip) {
+    font-size: 12px;
+    color: $--color-text-regular;
+    margin-top: 7px;
+  }
+
+  iframe {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    filter: alpha(opacity=0);
+  }
+  &:focus {
+    border-color: $--color-primary;
+    color: $--color-primary;
+
+    .#{$namespace}-upload-dragger {
+      border-color: $--color-primary;
+    }
+  }
+}
+@include b(upload-dragger) {
+  background-color: #fff;
+  border: 1px dashed #d9d9d9;
+  border-radius: 6px;
+  box-sizing: border-box;
+  width: 360px;
+  height: 180px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+
+  .#{$namespace}-icon-upload {
+    font-size: 67px;
+    color: $--color-text-placeholder;
+    margin: 40px 0 16px;
+    line-height: 50px;
+  }
+
+  ~ .#{$namespace}-upload__files {
+    border-top: $--border-base;
+    margin-top: 7px;
+    padding-top: 5px;
+  }
+
+  .#{$namespace}-upload__text {
+    color: $--color-text-regular;
+    font-size: 14px;
+    text-align: center;
+
+    em {
+      color: $--color-primary;
+      font-style: normal;
+    }
+  }
+
+  &:hover {
+    border-color: $--color-primary;
+  }
+
+  @include when(dragover) {
+    background-color: rgba(32, 159, 255, .06);
+    border: 2px dashed $--color-primary;
+  }
+}
+
+@include b(upload-list) {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  @include e(item) {
+    transition: all .5s cubic-bezier(.55,0,.1,1);
+    font-size: 14px;
+    color: $--color-text-regular;
+    line-height: 1.8;
+    margin-top: 5px;
+    position: relative;
+    box-sizing: border-box;
+    border-radius: 4px;
+    width: 100%;
+
+    .#{$namespace}-progress {
+      position: absolute;
+      top: 20px;
+      width: 100%;
+    }
+
+    .#{$namespace}-progress__text {
+      position: absolute;
+      right: 0;
+      top: -13px;
+    }
+
+    .#{$namespace}-progress-bar {
+      margin-right: 0;
+      padding-right: 0;
+    }
+
+    &:first-child {
+      margin-top: 10px;
+    }
+
+    & .#{$namespace}-icon-upload-success {
+      color: $--color-success;
+    }
+
+    .#{$namespace}-icon-close {
+      display: none;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      cursor: pointer;
+      opacity: .75;
+      color: $--color-text-regular;
+      //transform: scale(.7);
+
+      &:hover {
+        opacity: 1;
+      }
+    }
+
+    & .#{$namespace}-icon-close-tip {
+      display: none;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+      font-size: 12px;
+      cursor: pointer;
+      opacity: 1;
+      color: $--color-primary;
+    }
+    
+    &:hover {
+      background-color: $--background-color-base;
+
+      .#{$namespace}-icon-close {
+        display: inline-block;
+      }
+
+      .#{$namespace}-progress__text {
+        display: none;
+      }
+    }
+
+    @include when(success) {
+      .#{$namespace}-upload-list__item-status-label {
+        display: block;
+      }
+
+      .#{$namespace}-upload-list__item-name:hover, .#{$namespace}-upload-list__item-name:focus {
+        color: $--link-hover-color;
+        cursor: pointer;
+      }
+
+      &:focus:not(:hover) {  /* 键盘focus */
+        .#{$namespace}-icon-close-tip {
+          display: inline-block;
+        }
+      }
+
+      &:not(.focusing):focus, &:active { /* click时 */
+        outline-width: 0;
+        .#{$namespace}-icon-close-tip {
+          display: none;
+        }
+      }
+
+      &:hover, &:focus {
+        .#{$namespace}-upload-list__item-status-label {
+          display: none;
+        }
+      }
+    }
+  }
+
+  @include when(disabled) {
+    .#{$namespace}-upload-list__item:hover .#{$namespace}-upload-list__item-status-label {
+      display: block;
+    }
+  }
+
+  @include e(item-name) {
+    color: $--color-text-regular;
+    display: block;
+    margin-right: 40px;
+    overflow: hidden;
+    padding-left: 4px;
+    text-overflow: ellipsis;
+    transition: color .3s;
+    white-space: nowrap;
+
+    [class^="el-icon"] {
+      height: 100%;
+      margin-right: 7px;
+      color: $--color-text-secondary;
+      line-height: inherit;
+    }
+  }
+
+  @include e(item-status-label) {
+    position: absolute;
+    right: 5px;
+    top: 0;
+    line-height: inherit;
+    display: none;
+  }
+
+  @include e(item-delete) {
+    position: absolute;
+    right: 10px;
+    top: 0;
+    font-size: 12px;
+    color: $--color-text-regular;
+    display: none;
+
+    &:hover {
+      color: $--color-primary;
+    }
+  }
+
+  @include m(picture) {
+    .#{$namespace}-upload-list__item {
+      overflow: hidden;
+      z-index: 0;
+      background-color: #fff;
+      border: 1px solid #c0ccda;
+      border-radius: 6px;
+      box-sizing: border-box;
+      margin-top: 10px;
+      padding: 10px 10px 10px 90px;
+      height: 92px;
+
+      .#{$namespace}-icon-check,
+      .#{$namespace}-icon-circle-check {
+        color: $--color-white;
+      }
+
+      &:hover {
+        .#{$namespace}-upload-list__item-status-label {
+          background: transparent;
+          box-shadow: none;
+          top: -2px;
+          right: -12px;
+        }
+
+        .#{$namespace}-progress__text {
+          display: block;
+        }
+      }
+
+      &.is-success {
+        .#{$namespace}-upload-list__item-name {
+          line-height: 70px;
+          margin-top: 0;
+          i {
+            display: none;
+          }
+        }
+      }
+    }
+
+    .#{$namespace}-upload-list__item-thumbnail {
+      vertical-align: middle;
+      display: inline-block;
+      width: 70px;
+      height: 70px;
+      float: left;
+      position: relative;
+      z-index: 1;
+      margin-left: -80px;
+      background-color: $--color-white
+    }
+
+    .#{$namespace}-upload-list__item-name {
+      display: block;
+      margin-top: 20px;
+
+      i {
+        font-size: 70px;
+        line-height: 1;
+        position: absolute;
+        left: 9px;
+        top: 10px;
+      }
+    }
+
+    .#{$namespace}-upload-list__item-status-label {
+      position: absolute;
+      right: -17px;
+      top: -7px;
+      width: 46px;
+      height: 26px;
+      background: #13ce66;
+      text-align: center;
+      transform: rotate(45deg);
+      box-shadow: 0 1px 1px #ccc;
+
+      i {
+        font-size: 12px;
+        margin-top: 12px;
+        transform: rotate(-45deg);
+      }
+    }
+
+    .#{$namespace}-progress {
+      position: relative;
+      top: -7px;
+    }
+  }
+}
+

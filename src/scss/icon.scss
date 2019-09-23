@@ -1,0 +1,71 @@
+@import "common/var";
+@import "./mixins/config.scss";
+@font-face {
+    font-family: 'iconfont';  /* project id 1367779 */
+    src: url('//at.alicdn.com/t/font_1367779_bg7hhbydbcw.eot');
+    src: url('//at.alicdn.com/t/font_1367779_bg7hhbydbcw.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_1367779_bg7hhbydbcw.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_1367779_bg7hhbydbcw.woff') format('woff'),
+    url('//at.alicdn.com/t/font_1367779_bg7hhbydbcw.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_1367779_bg7hhbydbcw.svg#iconfont') format('svg');
+}
+[class^="#{$namespace}-icon-"], [class*=" #{$namespace}-icon-"] {
+    /* use !important to prevent issues with browser extensions that change fonts */
+    font-family: 'iconfont' !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: baseline;
+    display: inline-block;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.#{$icon-prefix}-shrink-right:before{content: "\e644"}
+.#{$icon-prefix}-more-vertical:before{content: "\e63e"}
+.#{$icon-prefix}-arrow-down:before{content: "\e600"}
+.#{$icon-prefix}-arrow-up:before{content: "\e65c"}
+.#{$icon-prefix}-arrow-left:before{content: "\e65b"}
+.#{$icon-prefix}-arrow-right:before{content: "\e65a"}
+.#{$icon-prefix}-screen-full:before{content: "\e655"}
+.#{$icon-prefix}-earth:before{content: "\e607"}
+.#{$icon-prefix}-close:before{content: "\e659"}
+.#{$icon-prefix}-circle-close:before{content: "\e65e"}
+.#{$icon-prefix}-info:before{content: "\e67d"}
+.#{$icon-prefix}-success:before{content: "\e73c"}
+.#{$icon-prefix}-warning:before{content: "\e673"}
+.#{$icon-prefix}-error:before{content: "\e62b"}
+.#{$icon-prefix}-question:before{content: "\e680"}
+.#{$icon-prefix}-circle-check:before{content: "\e601"}
+.#{$icon-prefix}-check:before{content: "\e602"}
+.#{$icon-prefix}-upload:before{content: "\e6d2"}
+.#{$icon-prefix}-bold:before{content: "\e637"}//加粗
+.#{$icon-prefix}-italic:before{content: "\e6cb"}//斜体
+.#{$icon-prefix}-header:before{content: "\e8b2"}//标题
+.#{$icon-prefix}-strikethrough:before{content: "\e65d"}//删除线
+.#{$icon-prefix}-mark:before{content: "\e609"}//标记
+.#{$icon-prefix}-align-left:before{content: "\e640"}//居左
+.#{$icon-prefix}-align-center:before{content: "\eac0"}//居中
+.#{$icon-prefix}-align-right:before{content: "\e90a"}//居右
+.#{$icon-prefix}-quote:before{content: "\e8ce"}//引用
+.#{$icon-prefix}-list-ol:before{content: "\e639"}//有序
+.#{$icon-prefix}-list-ul:before{content: "\e638"}//无序
+.#{$icon-prefix}-link:before{content: "\e6de"}//链接
+.#{$icon-prefix}-image:before{content: "\e614"}//图片
+.#{$icon-prefix}-code:before{content: "\e716"}//代码
+.#{$icon-prefix}-table:before{content: "\e603"}//表格
+.#{$icon-prefix}-undo:before{content: "\ec0d"}//上一步
+.#{$icon-prefix}-redo:before{content: "\e604"}//下一步
+.#{$icon-prefix}-trash:before{content: "\e652"}//清空
+.#{$icon-prefix}-save:before{content: "\e6c3"}//保存
+.#{$icon-prefix}-eye:before{content: "\e70f"}//查看
+.#{$icon-prefix}-eye-slash:before{content: "\e674"}//禁止查看
+.#{$icon-prefix}-catalog:before{content: "\e605"}//目录
+.#{$icon-prefix}-arrows-alt:before{content: "\e62f"}//全屏
+.#{$icon-prefix}-compress:before{content: "\e69c"}//退出全屏
+.#{$icon-prefix}-window-maximize:before{content: "\e606"}//沉浸阅读
+.#{$icon-prefix}-columns:before{content: "\e7f5"}//分栏
+.#{$icon-prefix}-question-circle:before{content: "\e610"}//帮助

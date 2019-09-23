@@ -1,0 +1,75 @@
+@import "./mixins/config.scss";
+@import "./common/var.scss";
+@import "mixins/mixins";
+@import "mixins/utils";
+@include b(row){
+    @include utils-clearfix;
+}
+//栅格栏数量
+$grid-col-count: 12 !default;
+
+[class*="#{$namespace}-col-"] {
+    position: relative; 
+    display: block; 
+    box-sizing: border-box;
+}
+.#{$namespace}-col-0 {
+    display: none;
+}
+@for $i from 1 through $grid-col-count {
+	.#{$namespace}-col-xs#{$i}{ 
+        float: left;
+        width:(1/12*$i*100%) !important;
+    } 
+}
+
+/* 超小屏幕(手机) */
+@media screen and (max-width: 768px) {
+    .#{$namespace}-hide-xs{display: none!important;}
+    .#{$namespace}-show-xs-block{display: block!important;}
+    .#{$namespace}-show-xs-inline{display: inline!important;}
+    .#{$namespace}-show-xs-inline-block{display: inline-block!important;}
+}
+
+/* 小型屏幕(平板) */
+@media screen and (min-width: 768px) {
+    .#{$namespace}-hide-sm{display: none!important;}
+    .#{$namespace}-show-sm-block{display: block!important;}
+    .#{$namespace}-show-sm-inline{display: inline!important;}
+    .#{$namespace}-show-sm-inline-block{display: inline-block!important;}
+    @for $i from 1 through $grid-col-count {
+        .#{$namespace}-col-sm#{$i}{ 
+            float: left;
+            width:(1/12*$i*100%) !important;
+        } 
+    }
+}
+/* 中型屏幕(桌面) */
+@media screen and (min-width: 992px) {
+    .#{$namespace}-container{width: 970px;}
+    .#{$namespace}-hide-md{display: none!important;}
+    .#{$namespace}-show-md-block{display: block!important;}
+    .#{$namespace}-show-md-inline{display: inline!important;}
+    .#{$namespace}-show-md-inline-block{display: inline-block!important;}
+    @for $i from 1 through $grid-col-count {
+        .#{$namespace}-col-md#{$i}{ 
+            float: left;
+            width:(1/12*$i*100%) !important;
+        } 
+    }
+}
+
+/* 大型屏幕(桌面) */
+@media screen and (min-width: 1200px) {
+    .#{$namespace}-container{width: 11600px;}
+    .#{$namespace}-hide-lg{display: none!important;}
+    .#{$namespace}-show-lg-block{display: block!important;}
+    .#{$namespace}-show-lg-inline{display: inline!important;}
+    .#{$namespace}-show-lg-inline-block{display: inline-block!important;}
+    @for $i from 1 through $grid-col-count {
+        .#{$namespace}-col-lg#{$i}{ 
+            float: left;
+            width:(1/12*$i*100%) !important;
+        } 
+    }
+}

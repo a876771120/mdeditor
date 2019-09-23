@@ -1,0 +1,41 @@
+@import "./mixins/config.scss";
+body,html{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Helvetica Neue,Helvetica,PingFang SC,Hiragino Sans GB,Microsoft YaHei,SimSun,sans-serif;
+    font-weight: 400;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+}
+.#{$namespace}-hide{
+    display: none !important;
+}
+.is-empty{
+    display: none !important;
+}
+@import "./icon.scss";//图标
+@import "./scrollbar.scss";//滚动条
+@import "./gride.scss";//布局样式
+@import "./card.scss";//卡片样式
+@import "./button.scss";//按钮样式
+@import "./menu.scss";//菜单样式
+@import "./dropdown.scss";//下拉菜单样式
+@import "./popper.scss";//弹出层样式
+@import "./breadcrumb.scss";//面包屑导航
+@import "./tag.scss";//标签样式
+@import "./form.scss";//form表单样式
+@import "./switch.scss";//开关样式
+@import "./checkbox.scss";//多选按钮
+@import "./radio.scss";//单选按钮
+@import "./select.scss";//下拉框
+@import "./input.scss";//输入框
+@import "./message.scss";//消息提示
+@import "./notification.scss";//消息提示
+@import "./modal.scss";//遮盖罩
+@import "./dialog.scss";//消息框
+@import "./loading.scss";//加载进度条
+@import "./table.scss";//数据表格样式
+@import "./pagination.scss";//分页样式
+@import "./tree.scss";//树形组件
+@import "./upload.scss";//上传组件
